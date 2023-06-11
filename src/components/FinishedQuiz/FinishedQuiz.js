@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './FinishedQuiz.module.css';
 import { BiCommentError, BiBadgeCheck } from 'react-icons/bi';
 import Button from '../UI/Button/Button';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 const FinishedQuiz = ({ results, quiz, onRetry }) => {
   const successCount = Object.keys(results).reduce((total, key) => {
     if (results[key] === 'success') {
@@ -33,9 +34,11 @@ const FinishedQuiz = ({ results, quiz, onRetry }) => {
         <Button onClick={onRetry} type="primary">
           Повторить
         </Button>
-        <Button onClick={onRetry} type="success">
-          Перейти в список тестов
-        </Button>
+        <Link to="/">
+          <Button onClick={onRetry} type="success">
+            Перейти в список тестов
+          </Button>
+        </Link>
       </div>
     </div>
   );
